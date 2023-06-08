@@ -1,0 +1,36 @@
+pipeline{
+  agent any
+  stages{
+    stage('compile'){
+      steps{
+      echo "compiled sucessfully....!"
+    }
+  }
+    stage('Junit'){
+      steps{
+      echo "unit-test sucessfully....!"
+   }
+  }
+    stage('Quality-gate'){
+      steps{
+      echo "Quality-gate sucessfully....!"
+      }
+   }
+    stage('Deploy'){
+      steps{
+      echo "Deployed sucessfully....!"
+      }
+    }
+}
+post{
+  always{
+    echo" this will run always"
+  }
+  success{
+    echo" this will run on success"
+  }
+  failure{
+    echo" this will run on Failure"
+  }
+}
+}
